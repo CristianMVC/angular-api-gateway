@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../layout/head.ejs %>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <% include ../layout/nav.ejs %>
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Roles:</h3>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="row">
+            <div class="col-md-12">
+              <% include ../layout/msj.ejs %>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="table-responsive">
+              <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                  <tr class="headings">
+                    <!--<th><input type="checkbox" id="check-all" class="flat"></th>-->
+                    <th class="column-title">Nombre </th>
+                    <th class="column-title text-center">Access To Admin </th>
+                    <th class="column-title text-center">Access To API </th>
+                    <th class="column-title no-link last text-center"><span class="nobr">Acci&oacute;n</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <% roles.forEach(function (role) { %>
+                <tr class="odd pointer">
+                  <!--<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>-->
+
+                  <td><%= role.name %></td>
+                  <td class="text-center"><% if (role.access_to_admin) { %><i class="fa fa-check"></i><% } else { %><i class="fa fa-close"></i><% } %></td>
+                  <td class="text-center"><% if (role.access_to_api) { %><i class="fa fa-check"></i><% } else { %><i class="fa fa-close"></i><% } %></td>
+
+                  <td class="last text-center">
+                    <a type="button" style="margin-bottom: 0" class="btn btn-warning" href="<%= locals.baseURL %>/admin/cp/roles/<%=role._id%>/edit" title="Editar">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+                    <a type="button" style="margin-bottom: 0" class="btn btn-danger" href="<%= locals.baseURL %>/admin/cp/roles/<%=role._id%>/delete" title="Eliminar">
+                      <i class="fa fa-times"></i>
+                    </a>
+                  </td>
+                </tr>
+                <% }) %>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <% include ../layout/footer.ejs %>
+  </div>
+</div>
+<% include ../layout/footer-scripts.ejs %>
+</body>
+</html>

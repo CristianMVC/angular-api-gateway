@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../layout/head.ejs %>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <% include ../layout/nav.ejs %>
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="row">
+            <div class="col-md-12">
+              <% include ../layout/msj.ejs %>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="table-responsive">
+              <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                  <tr class="headings">
+                    <!--<th><input type="checkbox" id="check-all" class="flat"></th>-->
+               
+                    <th class="column-title no-link last text-center">
+                      <span class="nobr">Año</span>
+                    </th>
+                    <th class="column-title no-link last text-center">
+                        <span class="nobr">Total</span>
+                    </th>
+                    <th class="column-title no-link last text-center">
+                        <span class="nobr">Acciones</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <% executedYears.forEach(function (executedYear) { %>
+                <tr class="odd pointer">
+                    <td class="text-center"><%= executedYear.number %></td>
+                    <td class="text-center"><%= executedYear.total %></td>
+                    <td class="last text-center">
+                      <a type="button" style="margin-bottom: 0" class="btn btn-warning" href="<%= locals.baseURL %>/admin/cp/notifications/<%=id%>/<%=executedYear.number%>" title="Editar">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <% include ../layout/footer.ejs %>
+  </div>
+</div>
+<% include ../layout/footer-scripts.ejs %>
+</body>
+</html>

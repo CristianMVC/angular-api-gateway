@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../layout/head.ejs %>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <% include ../layout/nav.ejs %>
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Cache</h3>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+              <div class="col-md-12">
+                <% include ../layout/msj.ejs %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Datos de Aplicación</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <p>Eliminar datos de Cache:</p>
+                      <div class="col-md">
+                        <form action="<%= locals.baseURL %>/admin/cp/cache" method="post">
+                          <input type="hidden" name="cache" value="0"/>
+                          <button type="submit" class="btn btn-warning" style="width: 200px;">Eliminar Cache </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Credenciales de Autenticaci&oacute;n</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <p>Eliminar datos de Doble Cache:</p>
+                      <div class="col-md">
+                        <form action="<%= locals.baseURL %>/admin/cp/cache" method="post">
+                          <input type="hidden" name="cache" value="1"/>
+                          <button type="submit" class="btn btn-warning" style="width: 200px;">Eliminar Doble Cache </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Credenciales de Autenticaci&oacute;n</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <p>Eliminar Credenciales Cacheadas:</p>
+                      <div class="col-md">
+                        <form action="<%= locals.baseURL %>/admin/cp/cache" method="post">
+                          <input type="hidden" name="cache" value="2"/>
+                          <button type="submit" class="btn btn-danger" style="width: 200px;">Eliminar Credenciales</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <% include ../layout/footer.ejs %>
+  </div>
+</div>
+<% include ../layout/footer-scripts.ejs %>
+</body>
+</html>

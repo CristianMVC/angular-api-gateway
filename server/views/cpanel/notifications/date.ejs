@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../layout/head.ejs %>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <% include ../layout/nav.ejs %>
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Campaña: <%= historyData.name %></h3>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="row">
+            <div class="col-md-12">
+              <% include ../layout/msj.ejs %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                        <tr class="headings">
+                            <!--<th><input type="checkbox" id="check-all" class="flat"></th>-->
+                        
+                            <th class="column-title no-link last text-center">
+                            <span class="nobr">ID</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Envios Realizados:</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Primer Envio</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Ultimo Envio</span>
+                            </th>
+                            <th>
+                                <span class="nobr">Activo</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd pointer">
+                                <td><%= historyData.id %></td>
+                                <td class="text-center"><%= historyData.total %></td>        
+                                <td class="text-center"><%= historyData.firstSend %></td>        
+                                <td class="text-center"><%= historyData.lastSend %></td>
+                                <td class="text-center">
+                                    <div class="radio">
+                                        <label>
+                                        <input type="radio"
+                                                class="flat"
+                                                name="access_to_admin"
+                                                value="true" checked> SI
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                        <input type="radio"
+                                                class="flat"
+                                                name="access_to_admin"
+                                                value="false" checked> NO
+                                        </label>
+                                    </div>
+                                </td>        
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                        <tr class="headings">
+                            <!--<th><input type="checkbox" id="check-all" class="flat"></th>-->
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Fecha:</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Envios Realizados:</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Fallidos:</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Exitosos:</span>
+                            </th>
+                            <th class="column-title no-link last text-center">
+                                <span class="nobr">Pendientes:</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd pointer">
+                                <td><%= sends.date %></td>
+                                <td class="text-center"><%= sends.total %></td>        
+                                <td class="text-center"><%= sends.failed %></td>        
+                                <td class="text-center"><%= sends.success %></td>        
+                                <td class="text-center"><%= sends.pending %></td>   
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="table-responsive">
+              <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                  <tr class="headings">
+                    <!--<th><input type="checkbox" id="check-all" class="flat"></th>-->
+               
+                    <th class="column-title no-link last text-center">
+                      <span class="nobr">id</span>
+                    </th>
+                    <th class="column-title no-link last text-center">
+                        <span class="nobr">username</span>
+                    </th>
+                    <th class="column-title no-link last text-center">
+                        <span class="nobr">Nombre</span>
+                    </th>
+                    <th class="column-title no-link last text-center">
+                        <span class="nobr">Apellido</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                <% notifications.forEach(function (notification) { %>
+                <tr class="odd pointer">
+                    <td><%= notification.id %></td>
+                    <td class="text-center"><%= notification.username %></td>        
+                    <td class="text-center"><%= notification.firstName %></td>        
+                    <td class="text-center"><%= notification.lastName %></td>        
+                </tr>
+                <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <% include ../layout/footer.ejs %>
+  </div>
+</div>
+<% include ../layout/footer-scripts.ejs %>
+</body>
+</html>
