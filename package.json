@@ -54,7 +54,7 @@
     "express-session": "1.15.6",
     "express-validation": "1.0.2",
     "express-winston": "2.4.0",
-    "googleapis": "^27.0.0",
+    "googleapis": "^39.1.0",
     "http-status": "1.0.1",
     "joi": "13.0.1",
     "joi-date-extensions": "1.2.0",
