@@ -73,7 +73,7 @@
     "pg-cursor": "^2.0.0",
     "redis": "2.8.0",
     "request": "2.83.0",
-    "sharp": "^0.22.0",
+    "sharp": "^0.30.5",
     "shelljs": "0.8.3",
     "superagent": "3.8.0",
     "superagent-binary-parser": "1.0.1",
